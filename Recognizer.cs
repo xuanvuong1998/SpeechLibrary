@@ -70,6 +70,7 @@ namespace SpeechLibrary
         {
             config = SpeechConfig.FromSubscription(subscriptionKey, subcriptionRegion);
 
+            config.SpeechRecognitionLanguage = "zh-CN";
             InitTimers();
             
         }

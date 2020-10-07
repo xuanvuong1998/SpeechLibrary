@@ -20,6 +20,7 @@ namespace SpeechLibrary
         /// <returns>The list of all installed voices name (Local)</returns>
         public static List<string> GetInstalledVoicesName()
         {
+          
             List<string> res = new List<string>();
 
             foreach (var item in synthesizer.GetInstalledVoices())
@@ -220,6 +221,19 @@ namespace SpeechLibrary
                 synthesizer.SpeakAsyncCancelAll();
             }
             catch { }
+        }
+
+        public static void GenerateAudio(string script, string filePath)
+        {
+
+            synthesizer.SetOutputToWaveFile(filePath);
+            synthesizer.Speak(script);
+            synthesizer.SetOutputToDefaultAudioDevice();
+            //synthesizer.Speak(filePath);
+
+
+            /*synthesizer.SetOutputToDefaultAudioDevice();
+            Speak(script);*/
         }
     }
 }
